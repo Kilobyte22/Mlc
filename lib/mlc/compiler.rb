@@ -14,6 +14,10 @@ module Mlc
       @tree = RubyParser.new.parse(code)
     end
 
+    def self.compile(code)
+      Compiler.new(code).parse!.to_lua
+    end
+
     def parse!
       puts (tree = @tree).inspect
       snip = Mlc::Abstract::Snippet.new

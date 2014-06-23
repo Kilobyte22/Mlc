@@ -8,7 +8,7 @@ module Mlc
       def to_lua(opts = {})
         template = <<URMOM
 (function (mlc)
-  local _scope, _global, _const, _ = mlc.scope, mlc.global, mlc.const, mlc.helpers
+  local _scope, self, _global, _const, _ = mlc.scope, mlc.top, mlc.global, mlc.const, mlc.helpers
 LVARS
 STUFF
 

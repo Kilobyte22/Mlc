@@ -1,13 +1,13 @@
 #!/usr/bin/env ruby
 require 'optparse'
 
-nogem = false
+libs = []
 OptionParser.new do |opts|
   opts.banner = 'Usage: mlc [flags] input... output'
-  opts.on('-g', '-nogem', 'Do not run as gem') do |v|
-    nogem = true
+  opts.on('-l', '--library NAME', 'Include lib in output') do |v|
+    libs << v
   end
-end#.parse!
+end.parse!
 
 $LOAD_PATH.unshift(File.expand_path(File.join(File.dirname(__FILE__), '../lib'))) if defined? $DEBUG && $DEBUG
 
@@ -21,8 +21,13 @@ end
 
 out = ARGV.pop
 outdata = []
+
+libs.each do |lib|
+  outdata << Mlc::Builder.build(lib)
+end
+
 ARGV.each do |file|
-  outdata << Mlc::Compiler.new(File.read(ARGV[0])).parse!.to_lua
+  outdata << Mlc::Compiler.new(File.read(file)).parse!.to_lua
 end
 
 File.write(out, outdata.join("\n"))

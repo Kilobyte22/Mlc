@@ -25,7 +25,7 @@ module Mlc
     end
 
     def lvars_define
-      @lvars.map{|el| 'l' + el.to_s}.join(', ')
+      "local #{@lvars.map{|el| 'l' + el.to_s}.join(', ')}"
     end
 
   end

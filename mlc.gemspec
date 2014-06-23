@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = Mlc::VERSION
   spec.authors       = ['Kilobyte']
   spec.email         = ['stiepen22@gmx.de']
-  spec.description   = %q{A ruby to lua compiler}
+  spec.description   = %q{Moonstone Lua Compiler}
   spec.summary       = %q{I can compile ruby to lua}
   spec.homepage      = ''
   spec.license       = 'MIT'
