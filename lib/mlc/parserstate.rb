@@ -1,4 +1,4 @@
-module Sapphire
+module Mlc
   class ParserState
 
     attr_reader :parent, :lvars

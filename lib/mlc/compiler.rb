@@ -1,14 +1,14 @@
 require 'ruby_parser'
-require 'sapphire/abstract/snippet'
-require 'sapphire/abstract/call'
-require 'sapphire/abstract/raw'
-require 'sapphire/abstract/block'
-require 'sapphire/abstract/literal'
-require 'sapphire/abstract/const'
-require 'sapphire/abstract/lasgn'
-require 'sapphire/abstract/lvar'
+require 'mlc/abstract/snippet'
+require 'mlc/abstract/call'
+require 'mlc/abstract/raw'
+require 'mlc/abstract/block'
+require 'mlc/abstract/literal'
+require 'mlc/abstract/const'
+require 'mlc/abstract/lasgn'
+require 'mlc/abstract/lvar'
 
-module Sapphire
+module Mlc
   class Compiler
     def initialize(code)
       @tree = RubyParser.new.parse(code)
@@ -16,7 +16,7 @@ module Sapphire
 
     def parse!
       puts (tree = @tree).inspect
-      snip = Sapphire::Abstract::Snippet.new
+      snip = Mlc::Abstract::Snippet.new
       if tree
         snip << ensure_block(tree)
       end

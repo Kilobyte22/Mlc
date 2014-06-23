@@ -1,9 +1,9 @@
-require 'sapphire/version'
-require 'sapphire/abstract'
-require 'sapphire/compiler'
-require 'sapphire/parserstate'
+require 'mlc/version'
+require 'mlc/abstract'
+require 'mlc/compiler'
+require 'mlc/parserstate'
 
-module Sapphire
+module Mlc
   def self.escape_str(str)
     str.gsub('\\', '\\\\').gsub("'", "\\'")
   end

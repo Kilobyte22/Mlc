@@ -1,4 +1,4 @@
-module Sapphire
+module Mlc
   module Abstract
     class Const
       def initialize(name)

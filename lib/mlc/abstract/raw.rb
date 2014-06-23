@@ -1,4 +1,4 @@
-module Sapphire
+module Mlc
   module Abstract
     class Raw
       def initialize(text)

@@ -1,4 +1,4 @@
-module Sapphire
+module Mlc
   module Abstract
     class Snippet
       def initialize
@@ -7,15 +7,15 @@ module Sapphire
 
       def to_lua(opts = {})
         template = <<URMOM
-(function (sapphire)
-  local _scope, _global, _const, _ = sapphire.scope, sapphire.global, sapphire.const, sapphire.helpers
+(function (mlc)
+  local _scope, _global, _const, _ = mlc.scope, mlc.global, mlc.const, mlc.helpers
 LVARS
 STUFF
 
-end)(Sapphire)
+end)(Mlc)
 URMOM
-        state = Sapphire::ParserState.new
-        (opts[:require] ? "local Sapphire = require('sapphire')\n" : '') +
+        state = Mlc::ParserState.new
+        (opts[:require] ? "local Mlc = require('mlc')\n" : '') +
           template.gsub('STUFF', @children.first.to_lua(1, opts, state)).
           gsub('LVARS', state.lvars.empty? ? '' : "\n  #{state.lvars_define}")
 
